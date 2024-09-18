@@ -12,5 +12,10 @@ public class BoltController : MonoBehaviour
     Vector2 movement = Vector2.up;
 
     transform.Translate(movement * speed * Time.deltaTime);
+
+    if (transform.position.y > Camera.main.orthographicSize + 1)
+    {
+      Destroy(this.gameObject);
+    }
   }
 }
