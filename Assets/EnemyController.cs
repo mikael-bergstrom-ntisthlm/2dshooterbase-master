@@ -26,4 +26,10 @@ public class EnemyController : MonoBehaviour
       Destroy(this.gameObject);
     }
   }
+
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    Destroy(this.gameObject);
+  }
+
 }
