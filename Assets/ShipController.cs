@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipController : MonoBehaviour
 {
@@ -17,9 +18,18 @@ public class ShipController : MonoBehaviour
   float timeBetweenShots = 0.5f;
   float timeSinceLastShot = 0;
 
+  [SerializeField]
+  int maxHealth = 10;
+  int currentHealth;
+
+  [SerializeField]
+  Slider hpBar;
+
   void Start()
   {
-
+    currentHealth = maxHealth;
+    hpBar.maxValue = maxHealth;
+    hpBar.value = currentHealth;
   }
 
   void Update()
@@ -40,4 +50,15 @@ public class ShipController : MonoBehaviour
       Instantiate(boltPrefab, gunPosition.position, Quaternion.identity);
     }
   }
+
+  private void OnTriggerEnter2D(Collider2D other)
+  {
+    if (other.tag == "Enemy")
+    {
+      currentHealth--;
+      hpBar.value = currentHealth;
+      print(currentHealth);
+    }
+  }
+
 }
