@@ -825,6 +825,8 @@ MonoBehaviour:
   boltPrefab: {fileID: 1287502262990996, guid: 4dd15c7fe51711c48ba135fef149bbf8, type: 3}
   gunPosition: {fileID: 1438924084}
   timeBetweenShots: 0.2
+  maxHealth: 2
+  hpBar: {fileID: 676416165}
 --- !u!70 &1755803740
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
