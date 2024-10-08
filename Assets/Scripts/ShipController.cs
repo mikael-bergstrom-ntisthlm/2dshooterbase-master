@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class ShipController : MonoBehaviour
 {
@@ -26,11 +27,18 @@ public class ShipController : MonoBehaviour
   [SerializeField]
   Slider hpBar;
 
+  [SerializeField]
+  TMP_Text pointsText;
+
+  int points = 0;
+
   void Start()
   {
     currentHealth = maxHealth;
     hpBar.maxValue = maxHealth;
     hpBar.value = currentHealth;
+
+    pointsText.text = points.ToString();
   }
 
   void Update()
@@ -60,7 +68,7 @@ public class ShipController : MonoBehaviour
       hpBar.value = currentHealth;
       if (currentHealth <= 0)
       {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
       }
     }
   }
