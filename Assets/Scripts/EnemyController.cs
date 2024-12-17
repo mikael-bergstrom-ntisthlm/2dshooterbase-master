@@ -34,6 +34,17 @@ public class EnemyController : MonoBehaviour
   {
     Instantiate(explosionPrefab, transform.position, Quaternion.identity);
     Destroy(this.gameObject);
+
+    GameObject player = GameObject.FindGameObjectWithTag("Player");
+
+    ShipController controller = player.GetComponent<ShipController>();
+
+    controller.AddPoints(250);
+
+    // GameObject.FindGameObjectWithTag("Player")
+    //   .GetComponent<ShipController>()
+    //   .AddPoints(250);
+
   }
 
 }

@@ -30,7 +30,7 @@ public class ShipController : MonoBehaviour
   [SerializeField]
   TMP_Text pointsText;
 
-  int points = 0;
+  public static int points = 0;
 
   void Start()
   {
@@ -38,7 +38,7 @@ public class ShipController : MonoBehaviour
     hpBar.maxValue = maxHealth;
     hpBar.value = currentHealth;
 
-    pointsText.text = points.ToString();
+    AddPoints(0);
   }
 
   void Update()
@@ -71,5 +71,11 @@ public class ShipController : MonoBehaviour
         SceneManager.LoadScene(2);
       }
     }
+  }
+
+  public void AddPoints(int amount)
+  {
+    points += amount;
+    pointsText.text = points.ToString();
   }
 }
